@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilização CSS para fotos circulares e visual limpo
+# Estilização CSS para fotos circulares e design limpo
 st.markdown("""
     <style>
     .stApp { background-color: #F0F7FF; }
@@ -43,23 +43,23 @@ with col_titulo:
 
 st.info("**Regra Máxima:** 'Sem outra regra além do amor' — Madre Úrsula Benincasa")
 
-# Abas com Conteúdo Integral de todos os slides
+# Abas com 100% do conteúdo dos slides
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Saídas & Projetos"
+    "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Projetos"
 ])
 
 with tab1:
     st.header("Institucional e Proposta")
-    st.write("### 🌍 Nossa História")
+    st.write("### 🌍 Mantenedora e Congregação")
+    st.write("- **Associação das Irmãs Teatinas da Imaculada Conceição:** Fundada em 21/07/1973.")
     st.write("- **Congregação:** Fundada em Nápoles, Itália, pela Madre Ursula Benincasa em 1583.")
-    st.write("- **Mantenedora:** Associação das Irmãs Teatinas da Imaculada Conceição, fundada em 21/07/1973.")
     
     st.write("### 💡 Proposta Pedagógica")
     st.write("Fundamentada no desenvolvimento dos valores humanos: **Solidariedade, Respeito, Justiça e Diálogo**.")
     st.write("Princípios seguidos por todos: Professores, Alunos, Funcionários, Diretores, Coordenadores e Pais/Responsáveis.")
 
 with tab2:
-    st.header("Equipe Diretiva")
+    st.header("Equipe Diretiva (Carômetro)")
     c1, c2, c3 = st.columns(3)
     
     with c1:
@@ -84,31 +84,38 @@ with tab2:
         </div>''', unsafe_allow_html=True)
 
 with tab3:
-    st.header("Orientações e Avisos Gerais")
+    st.header("Orientações Educacionais e Avisos")
     col_a, col_b = st.columns(2)
     with col_a:
         st.write("### 👕 Uniforme")
-        st.write("Uso obrigatório e com nome em todas as peças. Proibido outras cores.")
+        st.write("Uso obrigatório e com nome em todas as peças. Não serão permitidas outras cores.")
         
         st.write("### 📚 Biblioteca e Literatura (Infantil e Fund 1)")
         st.write("- Dia fixo na semana para empréstimo; devolução quinzenal.")
+        st.write("- **Atrasos:** Infantil e Fund I (multa por semana); Fund II (R$ 4,00 por dia).")
         st.write("- Aulas de Literatura acontecem quinzenalmente na biblioteca.")
-        st.write("- **Multas por atraso:** Infantil e Fund I (por semana); Fund II (R$ 4,00 por dia).")
         
-        st.write("### 👩‍🏫 Atendimento e Agendamentos")
-        st.write("- Agendar via agenda com antecedência de 24h a 48h.")
-        st.write("- Início dos atendimentos em Março; duração média de 20 minutos.")
+        st.write("### 👩‍🏫 Atendimentos Individualizados")
+        st.write("- Duração média de 20 minutos, organizados a partir de março.")
+        st.write("- **Infantil/Fund I:** Agendar via agenda com horários informados pela escola.")
+        st.write("- **Fund II:** Solicitar na Secretaria conforme disponibilidade.")
+        st.write("- *Não haverá agendamentos em semanas de avaliação.*")
 
     with col_b:
-        st.write("### 💊 Medicação")
-        st.write("Somente com receita médica e autorização assinada.")
+        st.write("### 💊 Medicação e Saúde")
+        st.write("Administração somente com receita médica e autorização assinada.")
         
-        st.write("### 🧸 Brinquedos (Sexta-feira)")
-        st.write("Proibido eletrônicos ou bolas. Incentivar o compartilhar e a convivência.")
+        st.write("### 🧸 Dia do Brinquedo (Sexta-feira)")
+        st.write("Educação Infantil e Fundamental I. Proibido eletrônicos ou bolas.")
+        st.write("Objetivo: incentivar o compartilhar e a convivência coletiva.")
         
         st.write("### 🍎 Lanche e Aniversários")
-        st.write("- Tempo de lanche: 15 minutos; orientamos opções saudáveis.")
-        st.write("- Aniversários (Infantil e Fund I): Kits individuais agendados via secretaria.")
+        st.write("- Lanche: 15 minutos; orientamos opções saudáveis.")
+        st.write("- Aniversários: Kits individuais com agendamento via agenda e Secretaria.")
+        
+        st.write("### 📝 Lição de Casa e Cadastro")
+        st.write("- Acompanhar diariamente para incentivar autonomia e responsabilidade.")
+        st.write("- Alterações de telefone/e-mail devem ser comunicadas via agenda.")
 
 with tab4:
     st.header("Horários e Pontualidade")
@@ -118,31 +125,32 @@ with tab4:
     with col_h2:
         st.info("### 🌤️ Período Tarde\n**13h às 17h35** (Fund I)\n**13h às 17h15** (Ed. Infantil)")
     
-    st.warning("⚠️ **Tolerância:** 10 minutos para atrasos. Após isso, o aluno ingressa apenas na 2ª aula.")
-    st.write("Atrasos maiores exigem atestado médico ou justificativa dos responsáveis.")
+    st.warning("⚠️ **Tolerância:** 10 minutos. Após isso, o aluno ingressa apenas na 2ª aula.")
+    st.write("Atrasos superiores exigem atestado médico ou justificativa dos responsáveis.")
 
 with tab5:
-    st.header("Sistema de Avaliação (1º ao 9º ano)")
-    st.write("Média do bimestre: 6.0.")
-    st.write("Aprovação anual: Média Final igual ou superior a 24.0.")
+    st.header("Sistema de Avaliação e Controle")
+    st.write("### 📊 Ensino Fundamental (1º ao 9º ano)")
+    st.write("- **Média Bimestral:** 6.0")
+    st.write("- **Aprovação Final:** Média Final (MF) ≥ 24.0")
     
-    st.write("#### Composição da Nota:")
-    st.latex(r'''\text{Média Bimestral} = \frac{P1 (\text{Formativa}) + P2 (\text{Prova})}{2}''')
-    st.write("- **P1 (10,0):** Trabalhos, pesquisas e testes.")
+    st.latex(r'''\text{Média} = \frac{P1 (\text{Formativa}) + P2 (\text{Prova})}{2}''')
+    st.write("- **P1 (10,0):** Trabalhos, pesquisas, testes e atividades formativas.")
     st.write("- **P2 (10,0):** Prova bimestral.")
     
     st.write("---")
-    st.write("### 💻 Notas Online")
-    st.write("Acompanhe em: **www.notasonline.com**.")
-    st.write("Registros de: Notas, lição de casa, calendário e ocorrências disciplinares.")
+    st.write("### 💻 Sistema Notas Online (www.notasonline.com)")
+    st.write("Acesso a: Calendários, boletim, lição de casa e registro de ocorrências.")
+    st.error("Registros incluem: desentendimento, desrespeito, dano material, atrasos e uniforme incompleto.")
 
 with tab6:
     st.header("Projetos Pedagógicos")
     st.write("### 🚌 Aula de Campo")
-    st.write("Saídas para teatros, museus e parques visando aprendizagem concreta.")
-    st.write("- Acompanhamento garantido por professores e segurança total.")
-    st.write("- **Autorização prévia obrigatória**; custos informados com antecedência.")
+    st.write("Objetivo: experiências concretas em teatros, museus, parques e grutas.")
+    st.write("- Acompanhamento total por professores e funcionários.")
+    st.write("- **Obrigatória autorização prévia dos pais.**")
+    st.write("- Custos de transporte/ingressos informados previamente.")
     
     st.write("---")
-    st.write("### 🧠 Sala de Recursos")
-    st.write("Atendimento focado em alunos Neurodivergentes. Previsão de inauguração: **Julho**.")
+    st.write("### 🧠 Sala de Recursos (Neurodivergentes)")
+    st.write("Previsão de inauguração: **Julho**.")
