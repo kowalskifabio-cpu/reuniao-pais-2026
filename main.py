@@ -123,10 +123,11 @@ with tab3:
     with col_a:
         st.write("### 👕 Uniforme")
         st.write("Uso obrigatório e com nome em todas as peças. Não serão permitidas outras cores.")
+        st.warning("É proibido o uso de chinelos ou calçados tipo 'Crocs' por questões de segurança e padronização.")
         
         st.write("### 📚 Biblioteca e Literatura (Infantil e Fund 1)")
         st.write("- Dia fixo na semana para empréstimo; devolução quinzenal.")
-        st.write("- **Atrasos:** Infantil e Fund I (multa por semana); Fund II (R$ 4,00 por dia).")
+        st.write("- **Atrasos:** Multa de R$ 4,00 por dia para todos os segmentos (Infantil, Fund. 1 e Fund. 2).")
         st.write("- Aulas de Literatura acontecem quinzenalmente na biblioteca.")
         
         st.write("### 👩‍🏫 Atendimentos Individualizados")
@@ -185,6 +186,13 @@ with tab6:
     st.write("- **Obrigatória autorização prévia dos pais.**")
     st.write("- Custos de transporte/ingressos informados previamente.")
     
+    st.write("---")
+    st.write("### 🧪 Feira de Ciências")
+    st.write("Projeto voltado à investigação científica e apresentação de experimentos práticos desenvolvidos pelos alunos.")
+
+    st.write("### 🎨 Literarte")
+    st.write("Evento que integra literatura e artes, celebrando a produção criativa e cultural de nossos estudantes.")
+
     st.write("---")
     st.write("### 🧠 Sala de Recursos (Neurodivergentes)")
     st.write("Previsão de inauguração: **Julho**.")
