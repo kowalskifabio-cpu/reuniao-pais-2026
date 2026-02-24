@@ -43,7 +43,7 @@ with col_titulo:
 
 st.info("**Regra Máxima:** 'Sem outra regra além do amor' — Madre Úrsula Benincasa")
 
-# Abas com 100% do conteúdo dos slides
+# Abas com 100% do conteúdo
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Projetos"
 ])
@@ -81,6 +81,40 @@ with tab2:
             <img src="https://raw.githubusercontent.com/kowalskifabio-cpu/reuniao-pais-2026/main/Josi.jpg" class="img-circular">
             <div class="nome-equipe">Josiane Dellaqua</div>
             <div class="cargo-equipe">Coordenadora Ed. Infantil, Fundamental 1 e Integral Tarde</div>
+        </div>''', unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.header("Corpo Docente")
+    
+    # Primeira linha de professores
+    p1, p2, p3, p4 = st.columns(4)
+    
+    with p1:
+        st.markdown(f'''<div class="img-container">
+            <img src="https://raw.githubusercontent.com/kowalskifabio-cpu/reuniao-pais-2026/main/Ana%20Desir%C3%A9e.jpg" class="img-circular">
+            <div class="nome-equipe">Ana Desirée</div>
+            <div class="cargo-equipe">Professora de Inglês (3º, 4º e 5º anos)</div>
+        </div>''', unsafe_allow_html=True)
+
+    with p2:
+        st.markdown(f'''<div class="img-container">
+            <img src="https://raw.githubusercontent.com/kowalskifabio-cpu/reuniao-pais-2026/main/Evandro.jpg" class="img-circular">
+            <div class="nome-equipe">Evandro</div>
+            <div class="cargo-equipe">Educação Física (Infantil ao Fund. 2)</div>
+        </div>''', unsafe_allow_html=True)
+
+    with p3:
+        st.markdown(f'''<div class="img-container">
+            <img src="https://raw.githubusercontent.com/kowalskifabio-cpu/reuniao-pais-2026/main/Ilana.jpg" class="img-circular">
+            <div class="nome-equipe">Ilana</div>
+            <div class="cargo-equipe">Professora de Inglês (Ed. Infantil, 1º e 2º anos)</div>
+        </div>''', unsafe_allow_html=True)
+
+    with p4:
+        st.markdown(f'''<div class="img-container">
+            <img src="https://raw.githubusercontent.com/kowalskifabio-cpu/reuniao-pais-2026/main/Luci.jpg" class="img-circular">
+            <div class="nome-equipe">Luci</div>
+            <div class="cargo-equipe">Educação Digital (Infantil e Fund. 1)</div>
         </div>''', unsafe_allow_html=True)
 
 with tab3:
