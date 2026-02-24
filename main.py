@@ -187,6 +187,13 @@ with tab6:
     st.write("- Custos de transporte/ingressos informados previamente.")
     
     st.write("---")
+    st.write("### 💻 Educação Digital (Antiga Cultura Maker)")
+    st.write("- **Nomenclatura:** A disciplina passou por alteração de nome para 2026, mas mantém o uso do material de Cultura Maker.")
+    st.write("- **Alinhamento:** Desenvolvida em total conformidade com a BNCC.")
+    st.write("- **Avaliação:** Passará a compor nota para Fundamental 1 e 2.")
+    st.write("- **Critérios:** A nota considerará tanto a participação coletiva quanto a individual dos alunos em sala.")
+
+    st.write("---")
     st.write("### 🧪 Feira de Ciências")
     st.write("Projeto voltado à investigação científica e apresentação de experimentos práticos desenvolvidos pelos alunos.")
 
