@@ -44,8 +44,8 @@ with col_titulo:
 st.info("**Regra Máxima:** 'Sem outra regra além do amor' — Madre Úrsula Benincasa")
 
 # Abas com 100% do conteúdo
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-    "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Projetos"
+tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Projetos", "☀️ Período Integral"
 ])
 
 with tab1:
@@ -203,3 +203,55 @@ with tab6:
     st.write("---")
     st.write("### 🧠 Sala de Recursos (Neurodivergentes)")
     st.write("Previsão de inauguração: **Julho**.")
+
+with tab7:
+    st.header("Informativo do Integral - manhã")
+    st.write("Curitiba, 23 de fevereiro de 2026")
+    st.write("Prezadas famílias e queridos alunos,")
+    st.write("Pensando sempre no aprendizado, no desenvolvimento integral e na qualidade de ensino, reformulamos as aulas do Integral para tornar a rotina ainda mais rica, dinâmica e significativa para nossos estudantes.")
+    st.write("A partir deste período, nossa grade de horários foi reorganizada, contemplando atividades diversificadas que estimulam o desenvolvimento cognitivo, social, emocional e criativo dos alunos.")
+    st.write("Convidamos todos a conferirem as novas grades de horário e as aulas disponíveis em cada ciclo.")
+    
+    st.subheader("Confira as novidades do Integral:")
+    
+    st.write("#### 🧪 Experiência / Pequenos Cientistas")
+    st.write("No laboratório de Ciências, as crianças vivenciam experiências práticas e seguras, explorando fenômenos como misturas, reações simples, estados físicos da matéria, plantio e observação da natureza. De forma lúdica, aprendem a observar, levantar hipóteses e registrar descobertas, despertando a curiosidade científica desde cedo.")
+    
+    st.write("#### ✍️ Produção Textual (4º e 5º ano)")
+    st.write("Espaço dedicado ao desenvolvimento da escrita criativa e formal, trabalhando diferentes gêneros textuais, ampliação de vocabulário, organização de ideias e aprimoramento da expressão escrita.")
+    
+    st.write("#### 📖 Contação de Histórias")
+    st.write("Momento de imaginação e encantamento, estimulando a escuta atenta, a interpretação e o gosto pela leitura.")
+    
+    st.write("#### 🎭 Iniciação Teatral")
+    st.write("Atividades que desenvolvem expressão corporal, oralidade, criatividade, autoconfiança e trabalho em grupo por meio de jogos e práticas teatrais.")
+    
+    st.write("#### 🎨 Oficina Criativa")
+    st.write("Exploração artística com diferentes materiais e técnicas, incentivando a criatividade, coordenação motora e expressão individual.")
+    
+    st.write("#### ♟️ Xadrez")
+    st.write("Desenvolvimento da concentração, planejamento, paciência e tomada de decisões estratégicas.")
+    
+    st.write("#### 📂 Projeto")
+    st.write("Momento destinado a pesquisas, desenvolvimento de trabalhos interdisciplinares e aprofundamento de conteúdos.")
+    
+    st.write("#### 🍳 Culinária (quinzenal)")
+    st.write("Atividade prática que trabalha medidas, organização, autonomia, alimentação saudável e cooperação, além de proporcionar experiências sensoriais.")
+    
+    st.write("#### 🎵 Musicalização")
+    st.write("Vivências com ritmo, canto, percepção sonora e expressão musical, contribuindo para o desenvolvimento cognitivo e sensível.")
+    
+    st.write("#### 🧩 Raciocínio Lógico e Estratégia (2º ao 5º ano)")
+    st.write("Desafios, jogos e situações-problema que estimulam o pensamento lógico, a resolução de problemas e a tomada de decisões.")
+    
+    st.write("#### 🥬 Horta")
+    st.write("Contato direto com a natureza, plantio, cuidados com a terra e aprendizagem sobre sustentabilidade e alimentação saudável.")
+    
+    st.write("#### ⚽ Esportes")
+    st.write("Atividades que promovem coordenação motora, trabalho em equipe, respeito às regras e hábitos saudáveis.")
+    
+    st.write("---")
+    st.write("Além das aulas, os alunos continuam contando com momentos de descontração, café, descanso e almoço, garantindo equilíbrio entre aprendizagem e bem-estar.")
+    st.write("Estamos muito animados com essa nova organização e confiantes de que ela proporcionará experiências ainda mais significativas para nossos alunos.")
+    st.write("Contamos com a parceria de sempre!")
+    st.write("Com carinho, **Equipe do Integral**")
