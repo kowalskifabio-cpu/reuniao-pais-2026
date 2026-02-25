@@ -1,13 +1,46 @@
 import streamlit as st
+from fpdf import FPDF
+import io
 
-# Configuração da página
+# --- FUNÇÃO PARA GERAR O PDF DE SEGURANÇA ---
+def gerar_pdf_seguranca():
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_auto_page_break(auto=True, margin=15)
+    
+    # Título do PDF
+    pdf.set_font("Arial", "B", 16)
+    pdf.cell(0, 10, "Escola Ursula Benincasa - Planejamento 2026", ln=True, align='C')
+    pdf.ln(10)
+
+    # Conteúdo estruturado para o PDF baseado no seu script
+    secoes = [
+        ("Institucional", "Mantenedora: Associação das Irmãs Teatinas (1973). Congregação: Fundada em 1583 por Madre Ursula Benincasa. Valores: Solidariedade, Respeito, Justiça e Diálogo."),
+        ("Equipe", "Diretora: Irmã Olinda. Coordenadoras: Ingrit Candido e Josiane Dellaqua. Professores: Ana Desirée, Evandro, Ilana e Luci."),
+        ("Avisos e Rotina", "Uniforme: Uso obrigatório (proibido chinelo/Crocs). Biblioteca: Multa Inf/Fund1 R$4,00/semana; Fund2 R$4,00/dia. Medicação: Apenas com receita."),
+        ("Horários", "Manhã: 07h25-12h10. Tarde Fund1: 17h35. Ed. Infantil: 17h00 (Tolerância até 17h10)."),
+        ("Avaliação", "Média Bimestral: 6.0. Aprovação Final: 24.0. Sistema: (P1+P2)/2. Acompanhamento: www.notasonline.com"),
+        ("Projetos", "Aula de Campo, Educação Digital (Antiga Maker), Feira de Ciências, Literarte e Sala de Recursos (Julho).")
+    ]
+
+    for titulo, texto in secoes:
+        pdf.set_font("Arial", "B", 12)
+        pdf.cell(0, 10, titulo, ln=True)
+        pdf.set_font("Arial", "", 10)
+        pdf.multi_cell(0, 7, texto)
+        pdf.ln(4)
+    
+    # Retorna o PDF como bytes
+    return pdf.output(dest='S').encode('latin-1', 'replace')
+
+# --- CONFIGURAÇÃO DA PÁGINA (ORIGINAL) ---
 st.set_page_config(
     page_title="Reunião Pedagógica 2026 - Escola Ursula Benincasa",
     page_icon="🏫",
     layout="wide"
 )
 
-# Estilização CSS para fotos circulares e design limpo
+# Estilização CSS (ORIGINAL)
 st.markdown("""
     <style>
     .stApp { background-color: #F0F7FF; }
@@ -33,17 +66,29 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Cabeçalho
-col_logo, col_titulo = st.columns([1, 4])
+# Cabeçalho com Inclusão do Botão de PDF
+col_logo, col_titulo, col_btn = st.columns([1, 4, 1.2])
 with col_logo:
     st.image("logo.jpg", width=140)
 with col_titulo:
     st.title("Reunião Pedagógica 2026")
     st.subheader("Escola Ursula Benincasa — Irmãs Teatinas")
+with col_btn:
+    # Gerador de PDF integrado
+    try:
+        pdf_bytes = gerar_pdf_seguranca()
+        st.download_button(
+            label="📄 Baixar PDF de Segurança",
+            data=pdf_bytes,
+            file_name="Resumo_Reuniao_2026.pdf",
+            mime="application/pdf",
+        )
+    except Exception as e:
+        st.error("Erro ao gerar PDF. Verifique o fpdf2.")
 
 st.info("**Regra Máxima:** 'Sem outra regra além do amor' — Madre Úrsula Benincasa")
 
-# Abas com 100% do conteúdo (Aba Período Integral removida)
+# Abas com 100% do conteúdo (ORIGINAL)
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     "🏠 Institucional", "👥 Equipe", "📅 Avisos & Rotina", "⏰ Horários", "📊 Avaliação", "🚌 Projetos"
 ])
