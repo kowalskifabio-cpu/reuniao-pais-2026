@@ -2,7 +2,7 @@ import streamlit as st
 from fpdf import FPDF
 import io
 
-# --- FUNÇÃO PARA GERAR O PDF DE SEGURANÇA ---
+# --- FUNÇÃO PARA GERAR O PDF DE SEGURANÇA CORRIGIDA ---
 def gerar_pdf_seguranca():
     pdf = FPDF()
     pdf.add_page()
@@ -18,7 +18,7 @@ def gerar_pdf_seguranca():
         ("Institucional", "Mantenedora: Associação das Irmãs Teatinas (1973). Congregação: Fundada em 1583 por Madre Ursula Benincasa. Valores: Solidariedade, Respeito, Justiça e Diálogo."),
         ("Equipe", "Diretora: Irmã Olinda. Coordenadoras: Ingrit Candido e Josiane Dellaqua. Professores: Ana Desirée, Evandro, Ilana e Luci."),
         ("Avisos e Rotina", "Uniforme: Uso obrigatório (proibido chinelo/Crocs). Biblioteca: Multa Inf/Fund1 R$4,00/semana; Fund2 R$4,00/dia. Medicação: Apenas com receita."),
-        ("Horários", "Manhã: 07h25-12h10. Tarde Fund1: 17h35. Ed. Infantil: 17h00 (Tolerância até 17h10)."),
+        ("Horários", "Manhã: 07h25-12h10. Tarde Fund1: 17h35. Ed. Infantil: 17h00 (Tolerância saída 17h10)."),
         ("Avaliação", "Média Bimestral: 6.0. Aprovação Final: 24.0. Sistema: (P1+P2)/2. Acompanhamento: www.notasonline.com"),
         ("Projetos", "Aula de Campo, Educação Digital (Antiga Maker), Feira de Ciências, Literarte e Sala de Recursos (Julho).")
     ]
@@ -30,8 +30,8 @@ def gerar_pdf_seguranca():
         pdf.multi_cell(0, 7, texto)
         pdf.ln(4)
     
-    # Retorna o PDF como bytes (usando latin-1 para compatibilidade básica)
-    return pdf.output().encode('latin-1', 'replace')
+    # Retorna os bytes do PDF de forma compatível com a nova versão da fpdf2
+    return pdf.output()
 
 # --- CONFIGURAÇÃO DA PÁGINA ---
 st.set_page_config(
@@ -75,13 +75,16 @@ with col_titulo:
     st.subheader("Escola Ursula Benincasa — Irmãs Teatinas")
 with col_btn:
     # Gerador de PDF
-    pdf_bytes = gerar_pdf_seguranca()
-    st.download_button(
-        label="📄 Baixar PDF de Segurança",
-        data=pdf_bytes,
-        file_name="Resumo_Reuniao_2026.pdf",
-        mime="application/pdf",
-    )
+    try:
+        pdf_output = gerar_pdf_seguranca()
+        st.download_button(
+            label="📄 Baixar PDF de Segurança",
+            data=pdf_output,
+            file_name="Resumo_Reuniao_2026.pdf",
+            mime="application/pdf",
+        )
+    except Exception as e:
+        st.error(f"Erro ao gerar PDF: {e}")
 
 st.info("**Regra Máxima:** 'Sem outra regra além do amor' — Madre Úrsula Benincasa")
 
@@ -154,11 +157,11 @@ with tab3:
     col_a, col_b = st.columns(2)
     with col_a:
         st.write("### 👕 Uniforme")
-        st.write("Uso obrigatório e com nome em todas as peças.")
-        st.warning("É proibido o uso de chinelos ou calçados tipo 'Crocs'.")
-        st.write("### 📚 Biblioteca e Literatura")
+        st.write("Uso obrigatório e com nome em todas as peças. Não serão permitidas outras cores.")
+        st.warning("É proibido o uso de chinelos ou calçados tipo 'Crocs' por questões de segurança e padronização.")
+        st.write("### 📚 Biblioteca e Literatura (Infantil e Fund 1)")
         st.write("- Dia fixo na semana para empréstimo; devolução quinzenal.")
-        st.write("- **Atrasos:** Infantil e Fund. I (R$ 4,00 por semana); Fund. II (R$ 4,00 por dia).")
+        st.write("- **Atrasos:** Infantil e Fundamental I (multa de R$ 4,00 por semana); Fundamental II (multa de R$ 4,00 por dia).")
         st.write("- Aulas de Literatura acontecem quinzenalmente na biblioteca.")
     with col_b:
         st.write("### 💊 Medicação e Saúde")
@@ -179,18 +182,25 @@ with tab4:
     st.warning("⚠️ **Tolerância:** 10 minutos (Entrada). Na saída da Educação Infantil, tolerância até 17h10.")
 
 with tab5:
-    st.header("Sistema de Avaliação")
+    st.header("Sistema de Avaliação e Controle")
+    st.write("### 📊 Ensino Fundamental (1º ao 9º ano)")
+    st.write("- **Média Bimestral:** 6.0")
+    st.write("- **Aprovação Final:** Média Final (MF) ≥ 24.0")
     st.latex(r'''\text{Média} = \frac{P1 + P2}{2}''')
-    st.write("- **Média Bimestral:** 6.0 | **Aprovação Final:** MF ≥ 24.0")
-    st.info("Acompanhe em: **www.notasonline.com**")
+    st.write("- **P1 (10,0):** Trabalhos, pesquisas, testes e atividades formativas.")
+    st.write("- **P2 (10,0):** Prova bimestral.")
+    st.write("---")
+    st.write("### 💻 Sistema Notas Online (www.notasonline.com)")
+    st.error("Registros: desentendimento, desrespeito, dano material, atrasos e uniforme incompleto.")
 
 with tab6:
     st.header("Projetos Pedagógicos")
     st.write("### 🚌 Aula de Campo")
     st.write("Objetivo: experiências concretas em teatros, museus, parques e grutas.")
+    st.write("- **Obrigatória autorização prévia dos pais.**")
     st.write("---")
     st.write("### 💻 Educação Digital (Antiga Cultura Maker)")
-    st.write("- Disciplina alterada em 2026, mantendo material de Cultura Maker e BNCC.")
+    st.write("- Disciplina alterada em 2026, mantendo material de Cultura Maker e alinhamento à BNCC.")
     st.write("- Compõe nota para Fundamental 1 e 2.")
     st.write("---")
     st.write("### 🧪 Feira de Ciências e 🎨 Literarte")
